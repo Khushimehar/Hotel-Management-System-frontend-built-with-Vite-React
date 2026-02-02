@@ -1,0 +1,17 @@
+.main-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-container {
+    display: flex;
+    flex: 1;
+}
+
+.main-content {
+    flex: 1;
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+    overflow-y: auto;
+    max-height: calc(100vh - 70px);
+}

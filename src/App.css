@@ -1,0 +1,29 @@
+/* App specific styles */
+:root {
+  --primary-color: #e94560;
+  --secondary-color: #16213e;
+  --accent-color: #00d4aa;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --success-color: #00d4aa;
+  --text-primary: #ffffff;
+  --text-secondary: #a0aec0;
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #1a1a2e;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Toast customization */
+.Toastify__toast-theme--dark {
+  background: rgba(26, 26, 46, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.Toastify__progress-bar--success {
+  background: var(--accent-color) !important;
+}
+
+.Toastify__progress-bar--error {
+  background: var(--primary-color) !important;
+}
