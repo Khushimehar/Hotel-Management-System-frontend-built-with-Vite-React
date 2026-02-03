@@ -54,6 +54,8 @@
     align-items: center;
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 .service-price {
@@ -78,4 +80,89 @@
 .service-status.maintenance {
     background: rgba(245, 158, 11, 0.2);
     color: #f59e0b;
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .services-page {
+        padding: 1.25rem;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-card:hover {
+        transform: none;
+    }
+
+    .service-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-info h3 {
+        font-size: 1.125rem;
+    }
+
+    .service-info p {
+        margin-bottom: 1rem;
+    }
+
+    .service-price {
+        font-size: 1.125rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .services-page {
+        padding: 1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 1.25rem;
+    }
+
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .service-info h3 {
+        font-size: 1rem;
+    }
+
+    .service-info p {
+        font-size: 0.8125rem;
+    }
+
+    .service-footer {
+        justify-content: center;
+    }
+
+    .service-status {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.65rem;
+    }
 }

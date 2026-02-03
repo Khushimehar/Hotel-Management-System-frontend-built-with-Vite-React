@@ -1,9 +1,11 @@
 .sidebar {
     width: 250px;
+    min-width: 250px;
     min-height: calc(100vh - 70px);
     background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
     padding: 1.5rem 0;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
 .sidebar-menu {
@@ -58,8 +60,124 @@
     width: 24px;
     display: flex;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .sidebar-label {
     font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Sidebar Overlay for Mobile */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.visible {
+    opacity: 1;
+}
+
+/* Mobile Close Button */
+.sidebar-close {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #ffffff;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.sidebar-close:hover {
+    background: rgba(233, 69, 96, 0.2);
+    color: #e94560;
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+
+    .sidebar-link {
+        padding: 0.875rem 1rem;
+    }
+
+    .sidebar-label {
+        font-size: 0.9375rem;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        min-height: 100vh;
+        width: 280px;
+        min-width: 280px;
+        z-index: 1001;
+        transform: translateX(-100%);
+        padding-top: 4rem;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        display: block;
+        pointer-events: none;
+    }
+
+    .sidebar-overlay.visible {
+        pointer-events: auto;
+    }
+
+    .sidebar-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar-link {
+        padding: 1rem 1.25rem;
+        min-height: 48px;
+    }
+
+    .sidebar-link:hover {
+        transform: none;
+    }
+
+    .sidebar-menu {
+        padding: 0.5rem 1rem;
+        gap: 0.25rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 85%;
+        max-width: 280px;
+    }
 }

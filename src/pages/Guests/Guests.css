@@ -40,12 +40,15 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: #ffffff;
+    flex-shrink: 0;
 }
 
 .guest-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .guest-info h3 {
@@ -88,10 +91,12 @@
     gap: 0.75rem;
     color: #a0aec0;
     font-size: 0.875rem;
+    word-break: break-all;
 }
 
 .contact-item svg {
     color: #e94560;
+    flex-shrink: 0;
 }
 
 .guest-stats {
@@ -100,10 +105,20 @@
     padding: 1rem;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.guest-stats>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
 }
 
 .stat-label {
     color: #a0aec0;
+    font-size: 0.75rem;
 }
 
 .stat-value {
@@ -116,4 +131,96 @@
     gap: 0.75rem;
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.guest-actions .action-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .guests-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .guests-page {
+        padding: 1.25rem;
+    }
+
+    .guests-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+
+    .guest-card {
+        padding: 1.25rem;
+    }
+
+    .guest-card:hover {
+        transform: none;
+    }
+
+    .guest-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .guest-info h3 {
+        font-size: 1.125rem;
+    }
+
+    .guest-stats {
+        padding: 0.75rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .guests-page {
+        padding: 1rem;
+    }
+
+    .guests-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .guest-card {
+        padding: 1rem;
+    }
+
+    .guest-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .guest-status {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.65rem;
+    }
+
+    .contact-item {
+        font-size: 0.8125rem;
+    }
+
+    .guest-stats {
+        justify-content: space-around;
+    }
+
+    .guest-actions .action-btn {
+        padding: 0.625rem;
+    }
 }

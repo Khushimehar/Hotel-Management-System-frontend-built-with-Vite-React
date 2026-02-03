@@ -51,11 +51,13 @@
     font-size: 1.5rem;
     color: #ffffff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
 }
 
 .stat-info {
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 
 .stat-value {
@@ -80,6 +82,7 @@
     border-radius: 16px;
     padding: 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
 }
 
 .dashboard-section h2 {
@@ -90,11 +93,13 @@
 
 .bookings-table {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .bookings-table table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 500px;
 }
 
 .bookings-table th,
@@ -102,6 +107,7 @@
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
 }
 
 .bookings-table th {
@@ -154,6 +160,7 @@
     color: #a0aec0;
     font-size: 0.875rem;
     width: 100px;
+    flex-shrink: 0;
 }
 
 .availability-bar {
@@ -188,10 +195,124 @@
     font-size: 0.875rem;
     width: 80px;
     text-align: right;
+    flex-shrink: 0;
 }
 
+/* Tablet Responsive */
 @media (max-width: 1024px) {
     .dashboard-content {
         grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 1.25rem;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1rem;
+        gap: 1rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .dashboard-section {
+        padding: 1rem;
+    }
+
+    .dashboard-section h2 {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+    }
+
+    .bookings-table th,
+    .bookings-table td {
+        padding: 0.75rem;
+        font-size: 0.8125rem;
+    }
+
+    .availability-item {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .availability-label {
+        width: 80px;
+        font-size: 0.75rem;
+    }
+
+    .availability-value {
+        width: 60px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .dashboard {
+        padding: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .stat-card {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .stat-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.125rem;
+    }
+
+    .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .bookings-table table {
+        min-width: 400px;
+    }
+
+    .bookings-table th,
+    .bookings-table td {
+        padding: 0.625rem 0.5rem;
+        font-size: 0.75rem;
     }
 }

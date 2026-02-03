@@ -15,3 +15,24 @@
     overflow-y: auto;
     max-height: calc(100vh - 70px);
 }
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .layout-container {
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        max-height: calc(100vh - 60px);
+        padding-bottom: 60px;
+        /* Space for potential bottom nav */
+    }
+}

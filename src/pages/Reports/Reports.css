@@ -52,11 +52,13 @@
 
 .report-info {
     flex: 1;
+    min-width: 0;
 }
 
 .report-info h3 {
     color: #ffffff;
     margin-bottom: 0.5rem;
+    font-size: 1.125rem;
 }
 
 .report-info p {
@@ -75,6 +77,8 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .report-btn:hover {
@@ -117,4 +121,113 @@
 .quick-stat-label {
     color: #a0aec0;
     font-size: 0.875rem;
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .reports-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.25rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .reports-page {
+        padding: 1.25rem;
+    }
+
+    .reports-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .report-card {
+        padding: 1.25rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .report-card:hover {
+        transform: none;
+    }
+
+    .report-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .report-info h3 {
+        font-size: 1rem;
+    }
+
+    .report-info p {
+        font-size: 0.8125rem;
+    }
+
+    .report-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.625rem 1rem;
+    }
+
+    .quick-stats {
+        padding: 1rem;
+    }
+
+    .quick-stats h2 {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .quick-stat-card {
+        padding: 1rem;
+    }
+
+    .quick-stat-value {
+        font-size: 1.5rem;
+    }
+
+    .quick-stat-label {
+        font-size: 0.75rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .reports-page {
+        padding: 1rem;
+    }
+
+    .report-card {
+        padding: 1rem;
+    }
+
+    .report-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.125rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .quick-stat-card {
+        padding: 0.75rem;
+    }
+
+    .quick-stat-value {
+        font-size: 1.25rem;
+    }
 }

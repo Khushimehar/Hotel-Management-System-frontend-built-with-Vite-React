@@ -267,3 +267,166 @@ select {
 .animate-pulse {
   animation: pulse 2s infinite;
 }
+
+/* ===== RESPONSIVE DESIGN SYSTEM ===== */
+
+/* CSS Custom Properties for Responsive Design */
+:root {
+  --sidebar-width: 250px;
+  --navbar-height: 70px;
+  --page-padding: 2rem;
+  --card-min-width: 300px;
+  --grid-gap: 1.5rem;
+}
+
+/* Responsive Container */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+}
+
+/* Responsive Page Header */
+@media (max-width: 768px) {
+  :root {
+    --page-padding: 1rem;
+    --card-min-width: 280px;
+    --grid-gap: 1rem;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-box {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-padding: 0.75rem;
+    --card-min-width: 100%;
+    --grid-gap: 0.75rem;
+  }
+
+  html {
+    font-size: 13px;
+  }
+
+  .page-header h1 {
+    font-size: 1.25rem;
+  }
+
+  .btn-primary {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .status-badge {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+  }
+
+  .action-btn {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Responsive Tables */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .table-responsive table {
+    min-width: 600px;
+  }
+
+  table th,
+  table td {
+    padding: 0.75rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* Responsive Cards Grid */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-min-width), 1fr));
+  gap: var(--grid-gap);
+}
+
+/* Responsive Modal */
+.modal-overlay {
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 1rem 1rem 0 0;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* Touch-friendly targets */
+@media (max-width: 768px) {
+  button,
+  .btn-primary,
+  .btn-secondary,
+  .action-btn,
+  .nav-link,
+  .sidebar-link {
+    min-height: 44px;
+  }
+}
+
+/* Hide on mobile/desktop utilities */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* Responsive Text Utilities */
+@media (max-width: 768px) {
+  .text-truncate-mobile {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

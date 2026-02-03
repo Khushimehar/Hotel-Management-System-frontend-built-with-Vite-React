@@ -9,7 +9,8 @@ import {
     FaCog,
     FaChartBar,
     FaConciergeBell,
-    FaFileInvoiceDollar
+    FaFileInvoiceDollar,
+    FaTimes
 } from 'react-icons/fa';
 import './Sidebar.css';
 
@@ -25,22 +26,47 @@ const menuItems = [
     { path: '/settings', icon: <FaCog />, label: 'Settings' },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
+    const handleLinkClick = () => {
+        // Close sidebar on mobile after navigation
+        if (window.innerWidth <= 768 && onClose) {
+            onClose();
+        }
+    };
+
     return (
-        <aside className="sidebar">
-            <div className="sidebar-menu">
-                {menuItems.map((item) => (
-                    <NavLink
-                        key={item.path}
-                        to={item.path}
-                        className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
-                    >
-                        <span className="sidebar-icon">{item.icon}</span>
-                        <span className="sidebar-label">{item.label}</span>
-                    </NavLink>
-                ))}
-            </div>
-        </aside>
+        <>
+            {/* Overlay for mobile */}
+            <div
+                className={`sidebar-overlay ${isOpen ? 'visible' : ''}`}
+                onClick={onClose}
+            />
+
+            <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+                {/* Close button for mobile */}
+                <button
+                    className="sidebar-close"
+                    onClick={onClose}
+                    aria-label="Close menu"
+                >
+                    <FaTimes />
+                </button>
+
+                <div className="sidebar-menu">
+                    {menuItems.map((item) => (
+                        <NavLink
+                            key={item.path}
+                            to={item.path}
+                            className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+                            onClick={handleLinkClick}
+                        >
+                            <span className="sidebar-icon">{item.icon}</span>
+                            <span className="sidebar-label">{item.label}</span>
+                        </NavLink>
+                    ))}
+                </div>
+            </aside>
+        </>
     );
 };
 

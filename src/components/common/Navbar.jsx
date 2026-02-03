@@ -1,14 +1,21 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaHotel, FaBell, FaUserCircle } from 'react-icons/fa';
+import { FaHotel, FaBell, FaUserCircle, FaBars } from 'react-icons/fa';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ onToggleSidebar }) => {
     const navigate = useNavigate();
 
     return (
         <nav className="navbar">
             <div className="navbar-brand">
+                <button 
+                    className="mobile-menu-toggle" 
+                    onClick={onToggleSidebar}
+                    aria-label="Toggle menu"
+                >
+                    <FaBars />
+                </button>
                 <FaHotel className="navbar-logo" />
                 <span className="navbar-title">Hotel Management</span>
             </div>
@@ -22,10 +29,10 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-actions">
-                <button className="navbar-btn">
+                <button className="navbar-btn" aria-label="Notifications">
                     <FaBell />
                 </button>
-                <button className="navbar-btn">
+                <button className="navbar-btn" aria-label="User menu">
                     <FaUserCircle />
                 </button>
             </div>

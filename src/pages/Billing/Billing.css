@@ -22,6 +22,7 @@
 .billing-stat-card .stat-icon {
     font-size: 2.5rem;
     color: #e94560;
+    flex-shrink: 0;
 }
 
 .billing-stat-card .stat-value {
@@ -50,11 +51,13 @@
 
 .invoices-table-container {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .invoices-table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 650px;
 }
 
 .invoices-table th,
@@ -62,6 +65,7 @@
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
 }
 
 .invoices-table th {
@@ -73,6 +77,14 @@
 
 .invoices-table td {
     color: #ffffff;
+}
+
+.invoices-table tbody tr {
+    transition: background 0.3s ease;
+}
+
+.invoices-table tbody tr:hover {
+    background: rgba(233, 69, 96, 0.1);
 }
 
 .status-badge.paid {
@@ -106,4 +118,114 @@
 
 .action-btn.print:hover {
     background: rgba(124, 58, 237, 0.3);
+}
+
+.billing-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .billing-stats {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .billing-page {
+        padding: 1.25rem;
+    }
+
+    .billing-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .billing-stat-card {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+    .billing-stat-card .stat-icon {
+        font-size: 2rem;
+    }
+
+    .billing-stat-card .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .billing-stat-card .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .invoices-section {
+        padding: 1rem;
+    }
+
+    .invoices-section h2 {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+    }
+
+    .invoices-table {
+        min-width: 550px;
+    }
+
+    .invoices-table th,
+    .invoices-table td {
+        padding: 0.75rem;
+        font-size: 0.8125rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .billing-page {
+        padding: 1rem;
+    }
+
+    .billing-stats {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .billing-stat-card {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .billing-stat-card .stat-icon {
+        font-size: 1.75rem;
+    }
+
+    .billing-stat-card .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .invoices-section {
+        padding: 0.75rem;
+    }
+
+    .invoices-table {
+        min-width: 450px;
+    }
+
+    .invoices-table th,
+    .invoices-table td {
+        padding: 0.625rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .billing-actions {
+        gap: 0.25rem;
+    }
+
+    .billing-actions .action-btn {
+        width: 28px;
+        height: 28px;
+    }
 }
